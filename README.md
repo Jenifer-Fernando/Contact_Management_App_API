@@ -5,7 +5,7 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">This is a CURD application for building a backend application using NestJS, PostgreSQL, and TypeORM.</p>
+  <p align="center">NestJS + PostgreSQL + TypeORM</p>
     <p align="center">
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
@@ -24,13 +24,23 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is a CURD application for building a backend application using NestJS, PostgreSQL, and TypeORM.
 
-## Project setup
+## Prerequisites
+Before running the project, ensure you have the Node.js (v16+ recommended)
 
+## Installation
+Clone the repository and navigate to the project folder:
+```bash
+$ git clone <repository-url>
+$ cd <project-folder>
+```
+## Install dependencies:
 ```bash
 $ npm install
 ```
+## Configuration
+Create a .env file in the root directory and add the environment variables.
 
 ## Compile and run the project
 
@@ -45,19 +55,15 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Run tests
+## Database Migrations
 
 ```bash
-# unit tests
-$ npm run test
+# To generate migrations:
+$ npm run typeorm migration:generate -- -n MigrationName
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+# To run migrations:
+$ npm run typeorm migration:run
 ```
-
 ## Deployment
 
 When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
