@@ -12,8 +12,8 @@ export class ContactsService {
     private readonly contactsRepository: Repository<Contact>) {
   }
 
-  async create(createCityDto: CreateContactDto) {
-    const contact = this.contactsRepository.create(createCityDto);
+  async create(CreateContactDto: CreateContactDto) {
+    const contact = this.contactsRepository.create(CreateContactDto);
 
     return await this.contactsRepository.save(contact);
   }
@@ -30,13 +30,13 @@ export class ContactsService {
     return await this.contactsRepository.findOne({ where: { id } });
   }
 
-  async update(id: number, updateCityDto: UpdateContactDto) {
+  async update(id: number, UpdateContactDto: UpdateContactDto) {
     const contact = await this.findOne(id);
     if (!contact) {
       throw new NotFoundException();
     }
 
-    Object.assign(contact, updateCityDto);
+    Object.assign(contact, UpdateContactDto);
 
     return await this.contactsRepository.save(contact);
   }
